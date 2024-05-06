@@ -70,8 +70,26 @@ const gallery = document.querySelector(".gallery");
 const imagesImport = images.map(function (image) {
   return `
   <li class="gallery-item">
-    <a class="gallery-link" href="large-image.jpg">
-      <img class="gallery-image" src="${image.preview}" data-source="${image.original}" alt="${image.description}" height="200">
+    <a class="gallery-link" href="${image.original}">
+      <img class="gallery-image" src="${image.preview}" alt="${image.description}" title="${image.description}">
     </a>
   </li>`
 });
+
+const imageCollection = `${imagesImport.join('')}`;
+gallery.innerHTML = imageCollection;
+
+
+
+
+gallery.querySelectorAll('.gallery-link').forEach(link => {
+  link.addEventListener('click', function(event) {
+    event.preventDefault();
+  });
+});
+
+var lightbox = $('.gallery a').simpleLightbox({ /* options */ });
+
+import SimpleLightbox from 'simplelightbox';
+
+import 'simplelightbox/dist/simple-lightbox.min.css';
