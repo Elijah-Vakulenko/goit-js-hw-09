@@ -1,3 +1,4 @@
+
 const images = [
   {
     preview:
@@ -64,7 +65,7 @@ const images = [
   },
 ];
 
-const gallery = document.querySelector(".gallery");
+let gallery = document.querySelector(".gallery");
 
 
 const imagesImport = images.map(function (image) {
@@ -79,17 +80,9 @@ const imagesImport = images.map(function (image) {
 const imageCollection = `${imagesImport.join('')}`;
 gallery.innerHTML = imageCollection;
 
-
-
-
-gallery.querySelectorAll('.gallery-link').forEach(link => {
-  link.addEventListener('click', function(event) {
-    event.preventDefault();
-  });
-});
-
-var lightbox = $('.gallery a').simpleLightbox({ /* options */ });
-
 import SimpleLightbox from 'simplelightbox';
 
 import 'simplelightbox/dist/simple-lightbox.min.css';
+
+gallery = new SimpleLightbox('.gallery a');
+
