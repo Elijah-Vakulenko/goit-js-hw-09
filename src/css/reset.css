@@ -5,7 +5,8 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+label {
   margin: 0;
 }
 
@@ -32,4 +33,10 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
 }
